@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script>
+    window.onload = function(){
+        var xhr = new XMLHttpRequest();//创建手机
+        xhr.open('get','./server/nav-json.php');//拨号
+        xhr.send(null);//说话
+        xhr.onreadystatechange = function(){
+            if(xhr.status == 200 && xhr.readyState == 4){
+                // console.log(xhr.responseText);
+                var arr = JSON.parse(xhr.responseText);
+                // console.log(arr);
+                var html = "";
+                for(var i=0;i<arr.length;i++){
+                    html+='<li>';
+                    html+='<a href="#">';
+                    html+='<img src="'+arr[i].src+'" alt="">';
+                    html+='<p>'+arr[i].text+'</p>';
+                    html+='</a>';
+                    html+='</li>';
+                }
+                // console.log(html);
+                document.getElementById('list').innerHTML = html;
+            }
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <h2>京东商城</h2>
+    <ul id="list">
+        <!-- <li>
+            <a href="#">
+                <img src="./images/nav_1.png" alt="">
+                <p>京东超市</p>
+            </a>
+        </li> -->
+        <!-- <li>
+            <a href="#">
+                <img src="./images/nav_2.png" alt="">
+                <p>全球购物</p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="./images/nav_3.png" alt="">
+                <p>京东市场</p>
+            </a>
+        </li> -->
+    </ul>
+</body>
+
+</html>

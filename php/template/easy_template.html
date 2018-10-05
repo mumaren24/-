@@ -1,0 +1,18 @@
+<script>
+    var obj = {
+        title:'我是标题',
+        content:'我是内容'
+    };
+
+    var str = "<h3><%=title%></h3><p><%=content%></p>";
+    var reg = /<%=(\w+)%>/;
+    // console.log(reg.exec(str));
+    // var arr = reg.exec(str);
+    // var str = str.replace(reg,obj[arr[1]]);
+    // console.log(str);
+    var arr = [];
+    while(arr = reg.exec(str)){
+        str = str.replace(reg, obj[arr[1]]);
+    }
+    console.log(str);
+</script>

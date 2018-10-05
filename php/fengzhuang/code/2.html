@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=2, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById('btn');
+            btn.onclick = function () {
+                //通过js把服务器data.txt的数据请求回来
+                var xhr = new XMLHttpRequest();
+                xhr.open('get', './get_json.php?username=jack&age=20');
+                xhr.send(null);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var data = JSON.parse(xhr.responseText);
+                        console.log(data);
+                        //可以把这个数据放到页面中 dom
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" id="btn" value="点击发送ajax">
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+1.phpstudy （我要用 这个软件带的 数据库而已 ）
+如果以后 你们 是直接安装了一个数据库 n那么不打开它也可以的
+
+2.找到 进入 letao文件夹 
+ shift+右键 打开。。窗口
+
+3 npm start  开启nodejs的服务器 类似phpstudy
+
+
+浏览器访问
+http://localhost:3000 直接到了public文件夹
+
+http://localhost:3000/m/xx.html xx.html是你想打开的m下的文件
+
+
+1.阿里百秀
+ 前端 我们写的
+ 后台php  也是我们写
+
+前面 所有的都是我们写了
+
+2 乐淘
+  前端 我们写
+  后台 已经写好了 会给你一个文档 告诉你 应该发送 get或者post  需要什么参数
+
+我们只需要 写html  css  js 发送ajax去写好的地方 获取数据即可
+专职 写前端
+
+以后工作 基本 和这个步骤一样
+
+
+工作的两种 代码方式
+1. 前后端分离  前端只写前端 发送ajax （基本都是这个开发模式）
+  乐淘就是这种
+
+2 混合开发  什么都要做 前后端都要懂
+
+
+1.bootstrap 响应式
+  1.1 引入对应的css 和js
+  1.2 复制代码  看一下 样式是否符合
+  1.3  不合适 自己写js或者css  去覆盖 修改
+
+
+1.mui
+  1.1 引入对应的css 和js
+  1.2 复制代码  看一下 样式是否符合
+  1.3  不合适 自己写js或者css  去覆盖 修改
+
+
+
+bootstrap 响应式 pc端 大屏幕 小屏幕 手机 都需要注意去写一些
+响应式 不太用
+
+mui 一般现在 只是手机端写一套  还要电脑端写一套
+
+1.
+头部 底部使用 position:fixed 定位
+如果内容区域直接写 会被遮住 所以使用padding 留出头部底部的位置就好了
+
+研究一些别人框架 怎么写 一些效果 你觉得好的效果
+
+修改样式 1.加一个自己的类名修改  2 直接加一个id 修改  
+  3 直接行内样式 style 修改 ）（样式太多了 一时间找不到 就直接行内改 比较急）
+
+1.图标
+  字体图标 
+      是字 但是 很像图标而已
+  精灵图
+
+
+ 字体图标  
+  1.mui自带了 如果觉得不好用 使用其他的
+  2、iconfont 阿里巴巴
+     1.选择想要的  下载对应css文件
+     2 直接把图标 对应的类名 使用即可
+        iconfont iconfont-xx  
+  3 font-awesome
+       1.选择想要的  下载对应css文件
+       2.引入css  使用对应的类名
+       fa  fa-xx
+ 字体图片 css 的 原理 是怎么来的？
+    @font-face 引入对应的文件  给他取一个 字体名字 
+
+/* 注意权重 是否 可以覆盖 */
+/* import>style>id>class>标签>继承 */
+
+
+点击的时候 有一堆红色警告 这个不用管
+
+轮播图
+1 找对应结构
+
+mui 框架 封装了 mui 类似jq的 $ jq的所有方法 他都有
+
+什么标签都可以使用 但是如果你想着需要点击 跳转到其他页面 那么 加上a
+
+img标签 默认 底部有3px左右的留白
+     /* vertical-align: top; */
+    /* display: block; */'
+   父元素 font-size: 0;也可以 不常用
+
+
+只要子元素 浮动了 立马 给父元素 写mui-clearfix  清除浮动
+
+提示你写代码速度
+
+
+移动端的事件
+ click 点击 他300ms延迟 所以移动端一般不用
+
+touch 相关的事件
+ 
+ontouchstart 手指触摸到屏幕
+ontouchmove  手指在屏幕滑动
+ontouchend  手指离开屏幕
+
+这几个事件 都可以拿到对应的 
+x y 坐标 事件对象e里面全都有
+
+模拟点击怎么做？
+
+ontouchstart 记录当前时间 t1
+
+ontouchend   记录离开时间 t2
+
+t2-t1 时间 我规定 小于100ms  认为是点击 时间很短
+
+t2-t1 时间很长 就是长按
+
+左滑
+ontouchstart 记录点的 坐标  x1 y1
+滑动的时候  记录 坐标  x2 y2
+
+最简单的左滑 如果 后面的x坐标 小于 开始的时候 x坐标 那肯定往左滑了
+
+
+右滑
+
+最简单的右滑 如果 后面的x坐标 大于 开始的时候 x坐标 那肯定往右滑了
+
+上滑
+后面y 一定小于 开始y
+
+下滑
+后面的y大于 开始y坐标
+
+1.先引入一个初始化样式
+
+
+.product ul li p span:first-child{/* 第一个孩子span */
+    color: #f20;
+}
+.product ul li p span:nth-child(2){/* 第二个孩子span */
+    text-decoration: line-through;
+}
+
+/* box-shadow: x坐标 y坐标 模糊多少像素 颜色; */
+    box-shadow: 0px 0px 5px red;
+
+zepto 类似jq的 js文件 他专门在移动端使用  他封装了 点击 左滑右滑
+
+tap  点击
+
+swipeLeft 左滑, swipeRight, swipeUp, swipeDown
+http://www.css88.com/doc/zeptojs_api/#Touch%20events
+
+
+滚动
+记录坐标算出y方向的 距离 使用translatey方向  动态的设置他的 运动距离
+
+
+
+
+
+
+
+
+
+
+
+
+

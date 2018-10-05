@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <h2>京东商城</h2>
+<ul>
+
+</ul>
+<script type="text/template" id="navTemp">
+    <% for(var i=0;i<items.length;i++){ %>
+        <li>
+            <a href="#">
+                <img src="<%=items[i].src%>" alt="">
+                <p><%=items[i].text%></p>
+            </a>
+        </li>
+    <% } %>
+</script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/template-native.js"></script>
+<script>
+    $.ajax({
+        type:'get',
+        url:'./getnav.php',
+        // url:'http://day8.com/getnav.php',
+        dataType:"jsonp",
+        success:function(result){
+            console.log("有没有调用");
+            var html = template("navTemp",{"items":result});
+            document.querySelector("ul").innerHTML = html;
+        }
+    });
+</script>
+</body>
+</html>

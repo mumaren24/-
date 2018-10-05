@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        table{
+            margin:0 auto;
+        }
+        table tr>td:nth-last-child(2),table tr>td:nth-last-child(2){
+            background:blue;
+            width:50px;
+        }
+        table tr>td:nth-last-child(2) img{
+            vertical-align: top;
+            height:50px;
+        }
+        table tr>td:last-child{
+            text-align:center;
+        }
+        table tr>td:last-child a{
+            display:inline-block;
+            padding:6px 3px;
+            text-decoration:none;
+            color:#222;
+        }
+        table tr>td:last-child a:first-child{
+            border:1px solid green;
+        }
+        table tr>td:last-child a:last-child{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <a href="register.php">新增</a>
+    <table border="1" width="80%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>姓名</th>
+                <th>昵称</th>
+                <th>年龄</th>
+                <th>电话</th>
+                <th>性别</th>
+                <th>班级</th>
+                <th>头像</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>xx</td>
+                <td>xx</td>
+                <td>xx</td>
+                <td>xx</td>
+                <td>xx</td>
+                <td>xxxx</td>
+                <td><img src="./upload/monkey.png"></td>
+                <td>
+                  <a href="#">编辑</a>
+                  <a href="#">删除</a> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

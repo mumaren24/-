@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //username=jack&age=20
+    var obj = {
+        username:'jack',
+        age:20,
+        a:200
+    };
+    // var str = "";
+    // for(var i in obj){
+    //     // console.log(i,obj[i]);
+    //     str += i + "=" + obj[i] + "&";
+    // }
+    // console.log(str);
+    // //思路一：使用lastIndexOf求出来最的一个&符号的索引
+    // //思路二：字符串长度
+    // console.log(str.slice(0, str.length - 1))
+
+
+
+
+    function getParams(obj){
+        var str = "";
+        for (var i in obj) {
+            // console.log(i,obj[i]);
+            str += i + "=" + obj[i] + "&";
+        }
+        return str.slice(0, str.length - 1);
+    }
+
+
+    console.log(getParams(obj));
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./form.css">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var username = document.getElementById('username');
+            username.onblur = function () {
+                var txt = this.value;
+               //在这块写
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="./register.php" method="post">
+        <span id="msg">aaa</span>
+        用户名：
+        <input type="text" name="username" id="username"> 昵称：
+        <input type="text" name="nickname"> 密码：
+        <input type="password" name="password">
+        <input type="submit" value="注册">
+        <div class="msg"></div>
+    </form>
+</body>
+
+</html>

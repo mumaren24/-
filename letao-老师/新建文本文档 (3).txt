@@ -1,0 +1,128 @@
+http://localhost:3000/m/detail.html?id=1
+
+detail详情页面需要id  如果直接访问 也要写上id  没写服务器会报错 需要重启
+
+
+cart页面
+
+1.图文列表 有滑动效果 类似收货地址
+2 有复选框 
+
+3总额
+给复选框绑定点击事件
+获取所有选中的 复选框 对应的产品标签
+把里面的每一个价格和数量拿到 相乘
+
+然后 一个一个相加  得到总额 写到订单总额后面
+ 选中
+$("input[type=checkbox]:checked")
+
+
+type="button" 普通按钮
+type="submit"  会提交  提交按钮  不写默认也是type="submit"
+
+原生js自带
+window.confirm("确定要退出吗？")
+	confirm("确定要退出吗？")
+
+	window.alert()
+
+前面会被影响
+后面修改对象的值
+
+简单类型  
+复杂类型 对象和数组（只会复制地址）
+地址找到的都是同一个空间 所以一修改 都全部修改
+
+
+
+禁用启用的sql
+update `user` set isDelete=1 where id=1
+
+twbspagination 阿里百秀第六天用过的
+
+
+es6语法 axios
+
+
+模态框 bootstrap
+
+栅格系统 媒体查询
+
+https://v3.bootcss.com/javascript/#modals
+
+
+http://www.jq22.com/jquery-info230
+
+选择文件上传 原生ajax 使用jq也可以上传
+change事件
+this.files[0]
+
+1.上传图片 触发 change事件
+2 获取要上传的文件 发送ajax到后台
+
+3 后台通过$_FILES来接收 接收到使用方法把临时文件存到对应的文件夹
+ 一般还会取一个不重复的名字
+
+4 直接返回这个图片的地址
+  前端拿到地址 填到 img标签的src里面 就可以看见了
+
+发送ajax
+使用 new FormData()
+
+http://www.jq22.com/jquery-info230
+
+使用上传插件
+
+1.引入对应的js
+<script src=jquery.min.js"></script>
+<script src="jquery.ui.widget.js"></script>
+<script src="jquery.iframe-transport.js"></script>
+<script src="jquery.fileupload.js"></script>
+2 有一个input type file的上传框 去一个id 和一个data-url 上传的地址
+3 调用方法
+  $('#fileupload').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+           data里面就存了地址
+        }
+    });
+
+http://www.jq22.com/yanshi18167 上传 剪裁
+
+    cursor: sw-resize; 可以做一下鼠标的样式
+
+vue 有一个套路 写法会是一个模板的样式
+
+8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+电脑 有6万多个 端口 
+
+有一些比较难写的效果 尽量找框架
+有些还是需要自己写的 
+
+
+要让一个元素 
+1.定位 top  left
+
+16进制  #fff
+
+rgb
+rgba  a不透明度 0透明 1不透明
+
+父元素
+    display:flex; 
+    flex-wrap: wrap;  wrap换行 默认不换行 会缩放
+
+ flex-direction: column 切换主轴方向  column Y  row X
+   justify-content: center; 主轴居中  默认x
+    align-items: center   副轴居中
+
+模板引擎
+
+1.引入对应js
+2 写模板
+<script type="text/template" id="category-left-tpl">
+        <%  for(var i=0;i<result.length;i++){ %>
+            <a href="#"><%=result[i].categoryName%></a>
+       <% } %>
+    </script>
+3 template 方法 拼接好 html
+var html=template("模板id",数据对象) 
+4  把拼接好的html 放到页面
+
+
+栅格系统
+1. row  代表 一行  一般有 12 列
+
+bootstrap
+ row
+
+一个占 一半
+col-xs-6    
+col-xs-数字
+col-sm
+col-md
+col-lg
+
+占四分之一
+col-xs-3
+
+mui
+
+mui-col-xs-6 
+
+1.本地存储（存在浏览器的  ）
+
+存 localStorage.setItem("名字",字符串的值)  只能是字符串
+
+取 localStorage.getItem("名字")
+
+删 localStorage.removeItem("名字")
+
+为什么这个历史记录 不存在数据库？临时 不重要 存浏览器就好 不用什么都存数据库
+
+2 转换字符串和数组
+JSON.parse(字符串)  转换成数组
+JSON.stringify(数组) 转换成字符串
+
+
+大逻辑
+
+搜索过什么东西 就应该 把他存起来 
+下次 进来页面 直接 就把曾经搜索过的 历史 显示出来了
+
+
+
+
+
+
+
+
+
+
+
+
+

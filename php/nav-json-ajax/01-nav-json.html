@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <h2>京东商城</h2>
+<ul>
+</ul>
+<!-- <script src="./js/ajaxTool.js"></script> -->
+<script src="./js/jquery.js"></script>
+<script>
+    $.ajax({
+        type: "get",
+        url: "./server/nav-json.php",
+        data: {},
+        dataType: "json",
+        success:render
+    });
+
+    function render(result){
+        var html = "";
+        for(var i=0;i<result.length;i++){
+            html += "<li>";
+            html +='<a href="#">';
+            html += '<img src="'+result[i].src+'" alt="">';
+            html += '<p>'+result[i].text+'</p>';
+            html += '</a>';
+            html += '</li>';
+        }
+        console.log(html);
+        // 将生成的页面结构添加到dom元素中
+        document.querySelector("ul").innerHTML = html;
+    }
+</script>
+</body>
+</html>

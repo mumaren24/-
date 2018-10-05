@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=2, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        
+        /**
+         * ajax
+         type --> 请求类型
+         url 请求地址
+         data 请求参数
+         success 成功之后要做的事情
+         * @return mixed 
+         */
+        
+        //我们公司比较大，有几百人，别人也会定义一个函数，名字叫getParams,叫ajax --> 全局污染 命名冲突
+        var $ = {
+            getParams: function(obj) {
+                var str = "";
+                for (var i in obj) {
+                    // console.log(i,obj[i]);
+                    str += i + "=" + obj[i] + "&";
+                }
+                return str.slice(0, str.length - 1);
+            },
+            //dataType:text,json,xml
+            ajax: function(option) {
+                data = this.getParams(option.data);
+                var xhr = new XMLHttpRequest();
+                if(option.type == 'get'){
+                    xhr.open(option.type, option.url + '?' + option.data);
+                    xhr.send(null);
+                }else{
+                    xhr.open(option.type, option.url);
+                    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+                    xhr.send(option.data);
+                }
+                
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        if(option.dataType == 'text'){
+                            var data = xhr.responseText;
+                            //这些代码是由调用这个函数的人来决定的
+                            option.success(data);
+                        }else if(option.dataType == 'xml'){
+                            var data = xhr.responseXML;
+                            option.success(data);
+                        }else{
+                            //json
+                            var data = JSON.parse(xhr.responseText);
+                            //这些代码是由调用这个函数的人来决定的
+                            option.success(data);
+                            //可以把这个数据放到页面中 dom
+                        }
+
+
+
+                        
+                    }
+                }
+            }
+        }
+        
+
+        window.onload = function () {
+            var btn = document.getElementById('btn');
+            btn.onclick = function () {
+                //通过js把服务器data.txt的数据请求回来
+                // function success(data){
+                //     console.log(data)
+                // }
+                // $.ajax('post','./post_json.php',{username:'jack',age:20},function(data){
+                //     console.log(data)
+                // },'json');
+
+                // $.ajax('get','./data.xml',{},function(data){
+                //     console.log(data);
+                // },'xml');
+
+
+                // $.ajax('get', './data.txt', {}, function (data) {
+                //     console.log(data);
+                // }, 'text');
+
+
+                $.ajax({
+                    type:'get',
+                    url:'./data.txt',
+                    data:{},
+                    success:function(data){console.log(data)},
+                    dataType:'text'
+                })
+            }
+        }
+
+
+
+
+        // btn.addEventLister('click',function(){
+        //     //我们不知道要做什么,由用户决定
+        // },false);
+    </script>
+</head>
+
+<body>
+    <input type="button" id="btn" value="点击发送ajax">
+</body>
+
+</html>

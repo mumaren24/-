@@ -1,0 +1,83 @@
+临时的数据 不太重要的
+1.session  服务器
+2 cookie   浏览器 （存的数据少）
+3 localstorage 存在浏览器 H5  你不删掉的话 会一直存在
+（前端 现在喜欢用这个） 存一些数据 后面会用 但是不重要的
+
+'abcdef'.substr(2) 从2索引开始 截取到最后
+
+数组的方法
+
+//unshift 在前面追加 push 在后面追加 pop 删除后面 shift 删除前面 
+
+
+select * from product where proName like '%莹恋%'
+
+proName 包含 莹恋 这两个字的 所有数据
+
+
+this 如果有两个函数以上 嵌套了 那么你就想一想 this还是你想要的吗？
+
+获取盒子的高度
+clientHeight
+scrollHeight
+offsetHeight
+
+框架的
+ mui.init({
+        pullRefresh : {
+          container:"#refreshContainer",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+          up : {
+            height:50,//可选.默认50.触发上拉加载拖动距离
+            auto:true,//true自动上拉加载一次 false不会
+            contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+            contentnomore:'客观没有啦！！！',//可选，请求完毕若没有更多数据时显示的提醒内容；
+            callback :getData //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+          }
+        }
+    });
+
+上拉加载原理
+
+上滑的距离>子盒子的高度-父盒子的高度
+
+
+
+
+
+
+a  写 href 就会跳转到对应的页面
+现在不会 是因为mui 框架 自己禁用他跳转
+
+现在想 自己写js来实现跳转
+
+
+ // location.href  这个可以 但是现在mui里面也有对应的跳转方法 我们可以用他
+        mui.openWindow({
+            url:$(this).attr("href")  //跳转的地址
+        })
+
+只要 给对应的a加上 href 对应你想去的地址  那么我们的js就能跳转过去
+
+让一个子元素 无条件居中
+position absolute
+
+top 50%
+left 50%
+  x y
+transform:translate(-50%,-50%)
+
+短信验证
+百度 搜索 手机短信验证码 真的发到手机  需要花钱买
+ 
+ mui.alert("请输入用户名"); 
+
+ mui.toast("请输入用户名");
+ mui.confirm("请输入用户名");
+
+
+
+
+
+
+

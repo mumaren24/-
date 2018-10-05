@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <h2>京东商城</h2>
+    <ul>
+    </ul>
+    <!-- <script src="./js/ajaxTool.js"></script> -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/template.js"></script>
+    <script type="text/template" id="tpl">
+        {{each arr as value index}}
+            <li><a href="#"><img src="{{value.src}}" alt=""><p>{{value.text}}</p></a></li>
+        {{/each}}
+    </script>
+    <script>
+        $(function () {
+            $.ajax({
+                type: 'get',
+                url: './server/nav-json.php',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    //不能用数组，如果是数组，包装成一个对象
+                    // template(模板id,数据)
+                    // var obj = { arr: data };//包装成普通的对象
+                    var obj = {"arr":data};
+                    var html = template('tpl', obj);
+                    // console.log(html);
+                    $('ul').html(html);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

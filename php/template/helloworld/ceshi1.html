@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./art-template.js"></script>
+    <script type="text/template" id="tpl">
+        <h3><%=title%></h3>
+        <p><%=content%></p>
+    </script>
+</head>
+<body>
+    <ul id="content">
+
+    </ul>
+    <script>
+        var obj = {
+            title:'我是标题',
+            content:'我是内容'
+        };
+
+        //思考：数据在哪 模板长得像什么样子 ---> 把它们合并 混在一起
+        // template('模板','数据')
+        var html = template('tpl', obj);
+        console.log(html);
+        // document.getElementById('content').innerHTML = html;
+    </script>
+</body>
+</html>

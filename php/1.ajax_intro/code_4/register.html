@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .msg{
+        display: none;
+    }
+    .success{
+        display: block;
+        color: green;
+    }
+    .warnning{
+        display: block;
+        color:red;
+    }
+    </style>
+    <script>
+    window.onload = function(){
+        var btn = document.querySelector('#btn');
+        var username = document.querySelector('#username');
+        var msg = document.querySelector('.msg');
+        btn.onclick = function(){
+            // console.log(username.value);
+            var txt = username.value.trim();
+            if(txt == ""){
+                info.innerText = '用户名不能为空';
+                msg.classList.add('warnning');//添加类名warnning
+                return;
+            }
+            var xhr = new XMLHttpRequest();
+            xhr.open('get','check_username.php?username='+txt);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    // console.log(JSON.parse(xhr.responseText));
+                    var data = JSON.parse(xhr.responseText);
+                    console.log(data)
+                    if(data.code == 1){
+                        msg.innerText = data.info;
+                        msg.classList.add('warnning');//添加类名warnning
+                    }else{
+                        msg.innerText = data.info;
+                        msg.classList.add('success');//添加类名success
+                    }
+                }
+            }
+            xhr.send(null);
+        }
+    }
+    </script>
+</head>
+<body>
+    <p class="msg info"></p>
+    <form action="./register_handler.php" method="post">
+        <input type="text" name="username" id="username">
+        <input type="button" value="验证用户名是否可用" id="btn">
+        <br>
+        <input type="password">
+        <br>
+        <input type="button" value="注册">
+    </form>
+</body>
+</html>

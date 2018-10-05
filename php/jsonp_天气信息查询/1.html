@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+    $.ajax({
+        type:'get',
+        url:'http://api.map.baidu.com/telematics/v3/weather',
+        data:{
+            location:'武汉',
+            output:'json',
+            ak:'zVo5SStav7IUiVON0kuCogecm87lonOj'//auth key 百度提供，注册一个账号，生成一个私钥
+        },
+        dataType:'jsonp',
+        success:function(data){
+            console.log(data);
+        }
+    })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
